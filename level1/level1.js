@@ -31,3 +31,54 @@ var app = angular.module('gemStore', []); //1.)
   });
 
 })();
+
+// 1.6 Not For Sale 250 PTS
+// We've added two new properties to our product that we can use on the HTML side.
+// The first of these two is canPurchase, which is a boolean indicating if the product can be purchased.
+// The second is soldOut which, as you can imagine, is a boolean indicating if the product is sold out.
+// Use these two new properties in our HTML page to solve the following objectives.
+
+// 1.) Use a directive to ensure that we can only see the "Add to Cart" button if the canPurchase property is true.
+// 2.) Our first gem is so popular that we've run out of stock already! Well,
+// Flatlander gems are pretty rare, so it shouldn't be a big surprise.
+// Luckily there is a soldOut property to our gem. When a gem is soldOut, hide the .product element.
+
+
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.product = gem;
+  });
+
+  var gem = {
+    name: 'Azurite',
+    price: 110.50,
+    canPurchase: false,
+    soldOut: true
+  };
+})();
+
+// 1.7 Look, More Gems!
+// Looks like the Flatlanders have discovered more gems for us to sell in the gemStore.
+// That's a relief! Follow the objectives below to add these new gems to the store.
+
+// 1.) In the app.js file we changed things up a little with a new gems array.
+// Assign gems to a products property inside StoreController.
+// 2.) You know how to display all the products, don't you?
+// Use the correct directive to display all the products in product row divs.
+
+
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+        this.products = gems; //1.)
+  });
+
+  var gems = [
+    { name: 'Azurite', price: 2.95 },
+    { name: 'Bloodstone', price: 5.95 },
+    { name: 'Zircon', price: 3.95 }
+  ];
+})();
